@@ -9,7 +9,7 @@
 ```
 Rule-Providers/
 ├── README.md
-├── SOICO/
+├── ICO/
 │   └── favicon.ico
 └── Mihomo/
     ├── 21Proxy.list
@@ -79,10 +79,10 @@ rule-providers:
 
 ## 图标
 
-`SOICO/favicon.ico` 为 Mihomo 面板中策略组使用的图标：
+`ICO/favicon.ico` 为 Mihomo 面板中策略组使用的图标：
 
 ```yaml
-icon: "https://raw.githubusercontent.com/shangkouyou/Rule-Providers/main/SOICO/favicon.ico"
+icon: "https://raw.githubusercontent.com/shangkouyou/Rule-Providers/main/ICO/favicon.ico"
 ```
 
 ## 维护约定
@@ -98,7 +98,7 @@ icon: "https://raw.githubusercontent.com/shangkouyou/Rule-Providers/main/SOICO/f
 
 - **2026-10-25**
   - 新建仓库，规则文件统一归入 `Mihomo/` 目录。
-  - 新增 `SOICO/favicon.ico` 图标。
+  - 新增 `ICO/favicon.ico` 图标。
   - `21Proxy.list` 新增 OKX / 欧易（OE）域名：`okx.com`、`okex.com`、`oklink.com`、`okx.cab`。
   - `21LAN.list` 修正 53 条带行尾注释的规则（原写法在 Mihomo 中不生效）。
   - 去除重复规则（`DOMAIN-KEYWORD,lovart`）。
