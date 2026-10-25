@@ -1,0 +1,242 @@
+# ============================================================
+# 21LAN 规则集 —— 强制直连白名单
+# 用途：命中后走 config.yaml 中的「21LAN」策略组（仅 DIRECT）
+# 维护：直接编辑本文件
+# 注意：行尾注释不会被 mihomo 解析，注释必须独立成行
+# ============================================================
+
+DOMAIN,127.0.0.1
+DOMAIN-KEYWORD,qq.com
+DOMAIN-KEYWORD,weixin
+DOMAIN-KEYWORD,wechat
+DOMAIN-KEYWORD,xiumi
+IP-CIDR,127.0.0.1/32
+#IP-CIDR,23.237.2.76/32
+
+# --- 本地/局域网 ---
+DOMAIN-SUFFIX,localhost
+DOMAIN-SUFFIX,local
+DOMAIN-SUFFIX,lan
+IP-CIDR,0.0.0.0/8
+IP-CIDR,10.0.0.0/8
+IP-CIDR,100.64.0.0/10
+IP-CIDR,127.0.0.0/8
+IP-CIDR,169.254.0.0/16
+IP-CIDR,172.16.0.0/12
+IP-CIDR,192.168.0.0/16
+IP-CIDR,224.0.0.0/4
+IP-CIDR6,fc00::/7
+IP-CIDR6,fe80::/10
+
+# ==========================================
+# ✅ 银行 / 支付 / 政务优先直连
+# 必须保持在所有代理规则之前，避免登录、验证、支付、政务办事误走代理
+# ==========================================
+
+# 银行登录修复：风控安全 SDK（必须直连，否则银行 APP 登录验证可能失败）
+# 同盾科技 反欺诈
+DOMAIN-SUFFIX,tongdun.net
+# 同盾 CDN
+DOMAIN-SUFFIX,tongduncdn.com
+# 数美科技 风控
+DOMAIN-SUFFIX,ishumei.com
+# 数美 风险雷达
+DOMAIN-SUFFIX,riskradar.net
+# 极验 验证码/行为验证
+DOMAIN-SUFFIX,geetest.com
+# 顶象科技 设备指纹
+DOMAIN-SUFFIX,dingxiangyun.com
+# 顶象科技
+DOMAIN-SUFFIX,dingxiangyun.cn
+# TrustDevice 设备风控
+DOMAIN-SUFFIX,trustdevice.net
+# 腾讯安全 鹰眼
+DOMAIN-SUFFIX,aegis.qq.com
+# 蚂蚁支付安全
+DOMAIN-SUFFIX,antpay.com
+# 百融云创
+DOMAIN-SUFFIX,rong360.com
+
+# ✅ 银行APP推送/统计服务（不直连会导致部分银行APP无法收到验证码推送）
+# 极光推送
+DOMAIN-SUFFIX,jiguang.cn
+# 极光推送
+DOMAIN-SUFFIX,jpush.cn
+# 极光推送
+DOMAIN-SUFFIX,jpush.io
+# 友盟统计
+DOMAIN-SUFFIX,umeng.com
+# 友盟云
+DOMAIN-SUFFIX,umengcloud.com
+# 融云IM（多家银行APP使用）
+DOMAIN-SUFFIX,rongcloud.cn
+# 融云
+DOMAIN-SUFFIX,rongcloud.com
+
+# 国内银行域名
+DOMAIN-KEYWORD,bank
+# 银联客服
+DOMAIN-SUFFIX,95516.com
+# 银联
+DOMAIN-SUFFIX,unionpay.com
+# 银联安全
+DOMAIN-SUFFIX,unionpaysecure.com
+# 工商银行
+DOMAIN-SUFFIX,icbc.com.cn
+# 建设银行
+DOMAIN-SUFFIX,ccb.com
+# 建行生活
+DOMAIN-SUFFIX,ccblife.com
+# 中国银行
+DOMAIN-SUFFIX,boc.cn
+# 农业银行
+DOMAIN-SUFFIX,abchina.com
+# 邮储银行
+DOMAIN-SUFFIX,psbc.com
+# 交通银行
+DOMAIN-SUFFIX,bankcomm.com
+# 招商银行
+DOMAIN-SUFFIX,cmbchina.com
+# 浦发银行
+DOMAIN-SUFFIX,spdb.com.cn
+# 兴业银行
+DOMAIN-SUFFIX,cib.com.cn
+# 光大银行
+DOMAIN-SUFFIX,cebbank.com
+# 平安银行
+DOMAIN-SUFFIX,pingan.com
+# 平安
+DOMAIN-SUFFIX,pingan.com.cn
+# 招商永隆
+DOMAIN-SUFFIX,cmbwinglungbank.com
+# 民生银行
+DOMAIN-SUFFIX,cmbc.com.cn
+# 广发银行
+DOMAIN-SUFFIX,cgbchina.com.cn
+# 华夏银行
+DOMAIN-SUFFIX,hxb.com.cn
+# 上海银行
+DOMAIN-SUFFIX,bankofshanghai.com
+# 上海农商行
+DOMAIN-SUFFIX,shrcb.com
+# 广州银行
+DOMAIN-SUFFIX,gzcb.com.cn
+# 宁波银行
+DOMAIN-SUFFIX,nbcb.com.cn
+# 南京银行
+DOMAIN-SUFFIX,njcb.com.cn
+# 重庆农商行
+DOMAIN-SUFFIX,cqrcb.com
+# 北京农商行
+DOMAIN-SUFFIX,brcb.com.cn
+# 浙商银行
+DOMAIN-SUFFIX,czbank.com
+# 汉口银行
+DOMAIN-SUFFIX,hkbchina.com
+# 东莞银行
+DOMAIN-SUFFIX,bocd.com.cn
+# 中银上海
+DOMAIN-SUFFIX,bocsh.com
+# 深圳农商行
+DOMAIN-SUFFIX,srcb.com.cn
+# 广东发展银行（广发旧域名）
+DOMAIN-SUFFIX,gdb.com.cn
+
+# 支付宝 / 微信支付
+DOMAIN-SUFFIX,alipay.com
+DOMAIN-SUFFIX,alipayobjects.com
+DOMAIN-SUFFIX,alipayhk.com
+# 蚂蚁集团
+DOMAIN-SUFFIX,antgroup.com
+# 蚂蚁金服
+DOMAIN-SUFFIX,antfinancial.com
+DOMAIN-SUFFIX,tenpay.com
+DOMAIN-SUFFIX,weixin.qq.com
+DOMAIN-SUFFIX,wechat.com
+DOMAIN-SUFFIX,servicewechat.com
+DOMAIN-SUFFIX,qpic.cn
+DOMAIN-SUFFIX,qlogo.cn
+DOMAIN-SUFFIX,url.cn
+DOMAIN-SUFFIX,wechatpay.cn
+DOMAIN-SUFFIX,wx.qq.com
+DOMAIN-SUFFIX,weixinbridge.com
+
+# --- 小红书 ---
+DOMAIN-SUFFIX,xiaohongshu.com
+DOMAIN-SUFFIX,xiaohongshu.net
+DOMAIN-SUFFIX,xhscdn.com
+
+# 政务 / 公共服务
+DOMAIN-SUFFIX,12315.cn
+DOMAIN-SUFFIX,12315.gov.cn
+DOMAIN-SUFFIX,gov.cn
+DOMAIN-KEYWORD,12315
+DOMAIN-KEYWORD,gjzwfw
+DOMAIN-KEYWORD,12306
+DOMAIN-SUFFIX,12306.cn
+DOMAIN-SUFFIX,govapp.cn
+
+# --- 运营商 ---
+DOMAIN-SUFFIX,10086.cn
+DOMAIN-SUFFIX,10010.com
+DOMAIN-SUFFIX,189.cn
+DOMAIN-SUFFIX,chinamobile.com
+DOMAIN-SUFFIX,chinaunicom.com
+DOMAIN-SUFFIX,chinatelecom.com.cn
+
+# --- 小米生态 ---
+DOMAIN-SUFFIX,mi.com
+DOMAIN-SUFFIX,miui.com
+DOMAIN-SUFFIX,xiaomi.com
+DOMAIN-SUFFIX,xiaomicp.com
+DOMAIN-SUFFIX,miot-spec.com
+DOMAIN-SUFFIX,io.mi.com
+DOMAIN-SUFFIX,ot.io.mi.com
+
+# --- 国内家电品牌 ---
+DOMAIN-SUFFIX,midea.com
+DOMAIN-SUFFIX,midea.com.cn
+DOMAIN-SUFFIX,smartmidea.net
+DOMAIN-SUFFIX,haier.net
+DOMAIN-SUFFIX,haier.com
+DOMAIN-SUFFIX,hisense.com
+DOMAIN-SUFFIX,tcl.com
+DOMAIN-SUFFIX,yeelight.com
+DOMAIN-SUFFIX,aqara.com
+DOMAIN-SUFFIX,tuya.com
+DOMAIN-SUFFIX,tuyaus.com
+
+# --- 电商/娱乐 ---
+DOMAIN-SUFFIX,taobao.com
+DOMAIN-SUFFIX,tmall.com
+DOMAIN-SUFFIX,jd.com
+DOMAIN-SUFFIX,jd.hk
+DOMAIN-SUFFIX,pinduoduo.com
+DOMAIN-SUFFIX,suning.com
+DOMAIN-SUFFIX,douyin.com
+DOMAIN-SUFFIX,douyinpic.com
+DOMAIN-SUFFIX,iesdouyin.com
+DOMAIN-SUFFIX,snssdk.com
+DOMAIN-SUFFIX,amemv.com
+DOMAIN-SUFFIX,byteimg.com
+DOMAIN-SUFFIX,ibytedtos.com
+DOMAIN-SUFFIX,volccdn.com
+DOMAIN-SUFFIX,ixigua.com
+DOMAIN-SUFFIX,bilibili.com
+DOMAIN-SUFFIX,bilivideo.com
+DOMAIN-SUFFIX,iqiyi.com
+DOMAIN-SUFFIX,youku.com
+DOMAIN-SUFFIX,qq.com
+DOMAIN-SUFFIX,tencent.com
+DOMAIN-SUFFIX,gtimg.com
+DOMAIN-SUFFIX,gtimg.cn
+DOMAIN-SUFFIX,gtimg.net
+DOMAIN-SUFFIX,idqqimg.com
+DOMAIN-SUFFIX,qqmail.com
+DOMAIN-SUFFIX,foxmail.com
+DOMAIN-SUFFIX,weiyun.com
+DOMAIN-SUFFIX,myapp.com
+DOMAIN-SUFFIX,qcloud.com
+DOMAIN-SUFFIX,myqcloud.com
+DOMAIN-SUFFIX,tencentcloud.com
+DOMAIN-SUFFIX,weibo.com
