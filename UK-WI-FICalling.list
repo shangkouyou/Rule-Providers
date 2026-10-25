@@ -1,0 +1,20 @@
+# EE WiFi Calling Rules
+# 运营商官网域名
+DOMAIN-SUFFIX,ee.co.uk
+
+# ePDG 服务器域名（完整域名匹配）
+DOMAIN,epdg.epc.mnc030.mcc234.pub.3gppnetwork.org
+DOMAIN,epdg.epc.mnc033.mcc234.pub.3gppnetwork.org
+
+# 3GPP 网络域名（关键词匹配）
+DOMAIN-KEYWORD,3gppnetwork.org
+DOMAIN-KEYWORD,mnc030.mcc234
+DOMAIN-KEYWORD,mnc033.mcc234
+
+# EE ePDG 服务器 IP 地址
+IP-CIDR,109.249.128.0/18,no-resolve
+IP-CIDR,46.68.57.0/24,no-resolve
+IP-CIDR,46.68.58.0/24,no-resolve
+IP-CIDR,46.68.59.0/24,no-resolve
+IP-CIDR,31.94.76.6/32,no-resolve
+IP-CIDR,31.94.76.9/32,no-resolve

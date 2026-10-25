@@ -1,0 +1,116 @@
+# ============================================================
+# 21Proxy 规则集
+# 用途：命中后走 config.yaml 中的「21Proxy」策略组
+# 维护：直接编辑本文件；mihomo 按 interval 自动拉取
+# 注意：本规则集在 rules 中位于 ProxyGFWlist 之前，命中即生效
+# 注意：行尾注释不会被解析，注释必须独立成行
+# ============================================================
+
+# --- 交易所 ---
+# OKX / 欧易（OE）：主站、APP API、Web3 浏览器
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okex.com
+DOMAIN-SUFFIX,oklink.com
+DOMAIN-SUFFIX,okx.cab
+DOMAIN-KEYWORD,htx
+DOMAIN-KEYWORD,bybit
+DOMAIN-KEYWORD,pionex
+DOMAIN,binance.com
+
+# --- 券商 / 行情 ---
+DOMAIN-KEYWORD,trading212
+DOMAIN-KEYWORD,moomoo
+DOMAIN-KEYWORD,longbridge
+DOMAIN-KEYWORD,itiger
+
+# --- 支付 ---
+DOMAIN-KEYWORD,oyunfor
+DOMAIN-KEYWORD,iyzico
+DOMAIN-KEYWORD,paymaya
+
+# --- 语音 / 通信 ---
+DOMAIN-KEYWORD,voice
+DOMAIN-KEYWORD,telephony
+DOMAIN,voice.telephony.goog
+
+# --- AI 服务 ---
+DOMAIN-KEYWORD,manus
+DOMAIN-KEYWORD,copilot
+DOMAIN-KEYWORD,gamma
+DOMAIN-KEYWORD,lovart
+DOMAIN-KEYWORD,grok
+DOMAIN-KEYWORD,grokipedia
+DOMAIN-SUFFIX,muse.ai
+DOMAIN-SUFFIX,meta.ai
+DOMAIN-SUFFIX,metaaivm.com
+
+# --- 流媒体 ---
+DOMAIN-KEYWORD,emotn
+DOMAIN-KEYWORD,tubi
+DOMAIN-KEYWORD,crunchyroll
+DOMAIN-KEYWORD,max
+DOMAIN-KEYWORD,hbomax
+DOMAIN-KEYWORD,hbo
+DOMAIN-KEYWORD,hbonow
+DOMAIN-KEYWORD,hbogo
+DOMAIN-KEYWORD,discomax
+DOMAIN-KEYWORD,netshort
+DOMAIN-SUFFIX,netshort.tv
+DOMAIN-KEYWORD,reelshort
+DOMAIN-KEYWORD,shortmax
+DOMAIN-KEYWORD,dramabox
+DOMAIN-KEYWORD,topshort
+
+# --- Meta 全家桶 ---
+# 说明：muse.ai 未被其他 ruleset 命中，会落到 MATCH→漏网之鱼(DIRECT) 而超时；
+#       meta.com / facebook.com / fbcdn.net 在 ProxyGFWlist 命中，
+#       这里统一收敛到 21Proxy 组，保证同一会话出口 IP 一致。
+#       不要用 DOMAIN-KEYWORD,muse —— muse.com / muse.io / museapp.com 是无关站点。
+DOMAIN-SUFFIX,meta.com
+DOMAIN-SUFFIX,facebook.com
+DOMAIN-SUFFIX,fbcdn.net
+DOMAIN-SUFFIX,fbsbx.com
+DOMAIN-SUFFIX,messenger.com
+DOMAIN-SUFFIX,oculus.com
+DOMAIN-SUFFIX,threads.com
+DOMAIN-SUFFIX,threads.net
+DOMAIN-SUFFIX,cdninstagram.com
+DOMAIN-SUFFIX,instagram.com
+DOMAIN-SUFFIX,whatsapp.com
+DOMAIN-SUFFIX,whatsapp.net
+
+# --- 其他 ---
+DOMAIN,c.gle
+DOMAIN-SUFFIX,b.ai
+DOMAIN-KEYWORD,poshmark
+DOMAIN-KEYWORD,mercari
+DOMAIN-KEYWORD,swag
+DOMAIN-KEYWORD,revvitysignals
+
+# --- IP 兜底（域名未放行时按 IP 匹配） ---
+IP-CIDR,118.193.240.37/32,no-resolve
+IP-CIDR,23.237.2.76/32,no-resolve
+IP-CIDR,18.200.8.190/32,no-resolve
+IP-CIDR,52.38.7.83/32,no-resolve
+IP-CIDR,54.155.178.5/32,no-resolve
+IP-CIDR,44.234.232.238/32,no-resolve
+IP-CIDR,54.155.246.232/32,no-resolve
+IP-CIDR,52.214.181.141/32,no-resolve
+IP-CIDR,3.251.50.149/32,no-resolve
+IP-CIDR,44.240.158.19/32,no-resolve
+IP-CIDR,54.74.73.31/32,no-resolve
+IP-CIDR,44.242.13.161/32,no-resolve
+IP-CIDR,54.170.196.176/32,no-resolve
+IP-CIDR,44.237.234.25/32,no-resolve
+IP-CIDR,54.246.79.9/32,no-resolve
+IP-CIDR,44.242.60.85/32,no-resolve
+IP-CIDR,54.73.148.110/32,no-resolve
+IP-CIDR,3.230.129.93/32,no-resolve
+IP-CIDR,3.211.157.115/32,no-resolve
+IP-CIDR,54.160.93.182/32,no-resolve
+IP-CIDR,54.237.226.164/32,no-resolve
+IP-CIDR,13.224.0.0/14,no-resolve
+IP-CIDR,157.240.0.0/16,no-resolve
+IP-CIDR,57.144.0.0/14,no-resolve
+IP-CIDR,31.13.24.0/21,no-resolve
+
