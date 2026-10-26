@@ -1,0 +1,40 @@
+# ============================================================
+# TikTok 规则集
+# 用途：命中后走 config.yaml 中的「TikTok」策略组
+# 注意：本规则集在 rules 中排在 21Proxy / 21LAN 之前，
+#       用于抢在 21LAN(DIRECT) 之前接管 ByteDance 国际域名
+# 注意：行尾注释不会被解析，注释必须独立成行
+# ============================================================
+
+# --- 主站 / 网页 ---
+DOMAIN-SUFFIX,tiktok.com
+DOMAIN-SUFFIX,tiktokv.com
+DOMAIN-SUFFIX,tiktokv.us
+DOMAIN-SUFFIX,tiktokw.us
+DOMAIN-SUFFIX,tiktokv.eu
+DOMAIN-SUFFIX,tiktokapis.com
+DOMAIN-SUFFIX,tik-tokapi.com
+DOMAIN-SUFFIX,musical.ly
+
+# --- 视频 / 直播 / 静态 CDN ---
+DOMAIN-SUFFIX,tiktokcdn.com
+DOMAIN-SUFFIX,tiktokcdn-us.com
+DOMAIN-SUFFIX,tiktokcdn-eu.com
+DOMAIN-SUFFIX,tiktokrow-cdn.com
+DOMAIN-SUFFIX,ttlivecdn.com
+DOMAIN-SUFFIX,ttwstatic.com
+DOMAIN-SUFFIX,muscdn.com
+
+# --- ByteDance 国际基础设施 ---
+DOMAIN-SUFFIX,ibytedtos.com
+DOMAIN-SUFFIX,ibyteimg.com
+DOMAIN-SUFFIX,byteoversea.com
+DOMAIN-SUFFIX,byteoversea.net
+DOMAIN-SUFFIX,isnssdk.com
+DOMAIN-SUFFIX,ipstatp.com
+
+# --- 关键词兜底 ---
+DOMAIN-KEYWORD,tiktok
+DOMAIN-KEYWORD,ttwstatic
+DOMAIN-KEYWORD,ttlivecdn
+DOMAIN-KEYWORD,musical.ly
