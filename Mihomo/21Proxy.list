@@ -44,6 +44,18 @@ DOMAIN-SUFFIX,muse.ai
 DOMAIN-SUFFIX,meta.ai
 DOMAIN-SUFFIX,metaaivm.com
 
+# --- Dola AI（字节跳动海外豆包）---
+# 说明：dola.com 与 ciciai.com / cici.com 同属字节跳动 AI 助手体系；
+#       ciciai.com / cici.com 也在 ProxyGFWlist 中出现，由本规则抢先接管。
+#       ibytedapm.com 在 ChinaDomain 中被判为直连，实际不可达，这里改为代理。
+#       byteoversea.com 通常已被 TikTok 规则集先命中，此处作为兜底保留。
+DOMAIN-SUFFIX,dola.com
+DOMAIN-SUFFIX,ciciai.com
+DOMAIN-SUFFIX,cici.com
+DOMAIN-SUFFIX,bytedapm.com
+DOMAIN-SUFFIX,ibytedapm.com
+DOMAIN-SUFFIX,byteoversea.com
+
 # --- 流媒体 ---
 DOMAIN-KEYWORD,emotn
 DOMAIN-KEYWORD,tubi
