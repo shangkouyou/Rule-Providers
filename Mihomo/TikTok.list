@@ -33,15 +33,8 @@ DOMAIN-SUFFIX,byteoversea.net
 DOMAIN-SUFFIX,isnssdk.com
 DOMAIN-SUFFIX,ipstatp.com
 
-# --- PineDrama（TikTok 海外短剧，发行商 TIKTOK PTE. LTD.）---
-# 说明：App Store 官网为 shortdrama.tiktok.com（已被 tiktok.com 覆盖）
-#       pinedrama.com / pinedrama.net 为其独立产品域
-DOMAIN-SUFFIX,pinedrama.com
-DOMAIN-SUFFIX,pinedrama.net
-
 # --- 关键词兜底 ---
 DOMAIN-KEYWORD,tiktok
 DOMAIN-KEYWORD,ttwstatic
 DOMAIN-KEYWORD,ttlivecdn
 DOMAIN-KEYWORD,musical.ly
-DOMAIN-KEYWORD,pinedrama
