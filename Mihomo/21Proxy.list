@@ -91,6 +91,12 @@ DOMAIN-SUFFIX,instagram.com
 DOMAIN-SUFFIX,whatsapp.com
 DOMAIN-SUFFIX,whatsapp.net
 
+# --- 闲鱼国际版（Goofish，运营方 GOOFISH PTE. LTD.）---
+# 说明：国际版独立域名为 igoofish.com（www.igoofish.com 解析到新加坡），
+#       与国内闲鱼 goofish.com 是两个不同域名，国内仍走 GEOIP,CN 直连。
+#       App：com.igoofish.fleamarket4Android / com.igoofish.fleamarket4ios
+DOMAIN-SUFFIX,igoofish.com
+
 # --- 其他 ---
 DOMAIN,c.gle
 DOMAIN-SUFFIX,b.ai
