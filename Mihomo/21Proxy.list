@@ -17,6 +17,34 @@ DOMAIN-KEYWORD,bybit
 DOMAIN-KEYWORD,pionex
 DOMAIN,binance.com
 
+# --- GMGN.AI（多链 Meme 交易终端：Solana / BNB / ETH / Base / TRON / Monad）---
+# 说明：主站与全部子域同属一家，DOMAIN-SUFFIX,gmgn.ai 一条即覆盖下面所有子域，
+#       此处列出仅为说明，不要再为子域重复写规则：
+#       - gmgn.ai / www / api  主站与接口（接口路径 /api/v1、/defi/quotation）
+#       - ws.gmgn.ai           行情与订单 WebSocket 长连接，断开后 K 线和余额不刷新
+#       - sub-tx-hash.gmgn.ai  交易哈希上报，不通会一直 pending、下单不落地
+#       - link.gmgn.ai         邀请返佣短链，走 Cloudflare
+#       - docs.gmgn.ai         帮助文档，走 CloudFront
+#       - memecoin.gmgn.ai     活动落地页，走 CloudFront
+#       下面这些第三方域名是网页实测会请求的依赖，缺任一个就会白屏、
+#       登录过不了人机验证或连不上钱包，故一并收敛到本组，保证同一会话出口 IP 一致：
+#       - beta.helius-rpc.com        Solana RPC：余额、报价、模拟交易
+#       - pulse.walletconnect.org    WalletConnect 会话状态
+#       - api.web3modal.org          WalletConnect / Web3Modal 钱包连接
+#       - challenges.cloudflare.com  Cloudflare Turnstile 人机验证（登录、领空投）
+#       - static.four.meme           Four.meme（BSC 发射台）代币图标与静态资源
+#       - js.intercomcdn.com / api-iam.intercom.io / nexus-websocket-a.intercom.io
+#                                    Intercom 在线客服组件
+DOMAIN-SUFFIX,gmgn.ai
+DOMAIN-SUFFIX,helius-rpc.com
+DOMAIN-SUFFIX,walletconnect.org
+DOMAIN-SUFFIX,walletconnect.com
+DOMAIN-SUFFIX,web3modal.org
+DOMAIN-SUFFIX,four.meme
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,challenges.cloudflare.com
+
 # --- 券商 / 行情 ---
 DOMAIN-KEYWORD,trading212
 DOMAIN-KEYWORD,moomoo
