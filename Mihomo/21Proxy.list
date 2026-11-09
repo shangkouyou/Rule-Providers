@@ -45,6 +45,42 @@ DOMAIN-SUFFIX,intercomcdn.com
 DOMAIN-SUFFIX,intercom.io
 DOMAIN-SUFFIX,challenges.cloudflare.com
 
+# --- FOMO（fomo.family，社交型多链 Meme 交易，FOMO Labs Inc.）---
+# 说明：fomo.family 是唯一主域，全部接口和子域都归下面这一条，不要再为子域重复写规则：
+#       - fomo.family / www            主站与网页版交易（/trade、/markets）
+#       - prod-api / prod-us-api / prod-apac-api / prod-euc-api / prod-external-api
+#                                      按区域拆分的 API 入口
+#       - prod-edge / evm-data.prod-edge  行情与链上数据的自建边缘节点
+#       - app-actions / app-actions3    PostHog 埋点，他们反代到自己域上
+#       - auth / privy / feature-flags  登录、Privy 托管钱包、特性开关
+#       - banner / download / status / wrapped-2025 / newsletter / legacy-landing
+#       - preview / preprod / staging-edge / staging-orders / admin-staging  预发环境
+#       fomo.com 提供的是同一份站点（除随机 CSP nonce 外 HTML 完全相同，
+#       canonical 指向 fomo.family，同一 Cloudflare 账号），属同一家，一并收敛。
+DOMAIN-SUFFIX,fomo.family
+DOMAIN-SUFFIX,fomo.com
+
+# --- FOMO 兜底依赖（链 RPC + 特性开关）---
+# 说明：主站把链上读取走 prod-edge 自建中转，平时不会直连这些；
+#       它们写死在前端 viem 链配置与 Statsig SDK 里，只在中转故障时兜底命中，
+#       留着可以避免此时页面一直转圈。嫌多可以整段删掉，不影响主流程。
+#       - rpc.monad.xyz / rpc1.monad.xyz            Monad RPC
+#       - 56.rpc.thirdweb.com                        BSC RPC（thirdweb 中转）
+#       - mainnet.base.org                           Base RPC
+#       - eth.merkle.io                              ETH RPC
+#       - rpc.mainnet.chain.robinhood.com            Robinhood Chain RPC
+#       - statsigapi.net / statsigcdn.com / featureassets.org / prodregistryv2.org
+#                                                    Statsig 特性开关
+DOMAIN-SUFFIX,monad.xyz
+DOMAIN-SUFFIX,thirdweb.com
+DOMAIN,mainnet.base.org
+DOMAIN,eth.merkle.io
+DOMAIN,rpc.mainnet.chain.robinhood.com
+DOMAIN-SUFFIX,statsigapi.net
+DOMAIN-SUFFIX,statsigcdn.com
+DOMAIN-SUFFIX,featureassets.org
+DOMAIN-SUFFIX,prodregistryv2.org
+
 # --- 券商 / 行情 ---
 DOMAIN-KEYWORD,trading212
 DOMAIN-KEYWORD,moomoo
