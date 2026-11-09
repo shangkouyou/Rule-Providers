@@ -36,6 +36,17 @@ DOMAIN,binance.com
 #       - js.intercomcdn.com / api-iam.intercom.io / nexus-websocket-a.intercom.io
 #                                    Intercom 在线客服组件
 DOMAIN-SUFFIX,gmgn.ai
+# ---- GMGN 的替代域（同一套前端，面向国内/移动端）----
+# gmgn.mobi：2024-12-05 经 Amazon Registrar 注册，Route 53 + Cloudflare，
+#            只开了 www 和 ws 两个子域，DNS 里连 TXT/MX 都没有，是纯入口域。
+#            注意它没被 GMGN 前端写进官方白名单（白名单只有 gmgn.ai 和 nihao.host），
+#            所以从 gmgn.mobi 打开网页时，前端会把自己判定成 test 环境，
+#            WebSocket 自动拼成 wss://ws.<当前域名>，也就是 ws.gmgn.mobi。
+# nihao.host：GMGN 前端代码里硬编码的第二个官方域，www.nihao.host 能直接打开
+#            GMGN 前端，解析到与 gmgn.ai 同一对 Cloudflare 地址；
+#            在该域下 WebSocket 走同源 /v2/ws，不需要额外规则。
+DOMAIN-SUFFIX,gmgn.mobi
+DOMAIN-SUFFIX,nihao.host
 DOMAIN-SUFFIX,helius-rpc.com
 DOMAIN-SUFFIX,walletconnect.org
 DOMAIN-SUFFIX,walletconnect.com
