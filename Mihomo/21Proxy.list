@@ -108,6 +108,38 @@ DOMAIN-KEYWORD,voice
 DOMAIN-KEYWORD,telephony
 DOMAIN,voice.telephony.goog
 
+# --- Microsoft Teams（微软按 IP 地区封锁大陆，必须走代理）---
+# 说明：这些域名在 Microsoft.list 里会被 DOMAIN-KEYWORD,microsoft / DOMAIN-SUFFIX,live.com
+#       一起吞掉 → 落到「微软服务」→ 直连 → 命中区域封锁，页面直接显示
+#       "Teams for personal use is no longer available in your location"。
+#       本规则集在 rules 里排第 4 位，早于 Microsoft（第 27 位），在这里接管才有效。
+#       - teams.microsoft.com    工作/学校版 Web 与客户端。后缀一条覆盖全部子域：
+#                                msgapi / trouter / asyncgw / notifications / ice / acs 等
+#       - teams.cloud.microsoft  2024 年起的统一新域名
+#       - teams.live.com         个人版；实测直连返回 /v2/service-blocked
+#       - teams.microsoft.us      美国政府 GCC 云，仅对应租户需要
+#       - lync.com               音视频信令与 TURN 中继（UDP 3478-3481）
+#       - skype.com              媒体中继，微软官方 Teams 端点清单 id 127 列为必需
+#       - teams.cdn.office.net   Web 版静态资源（statics.teams.cdn.office.net）
+#       刻意不放进来：login.microsoftonline.com / login.microsoft.com / live.com /
+#       office.net / aka.ms —— 这些是微软全家桶共用的登录和 CDN，国内直连正常，
+#       放进来会把 Outlook、Office、OneDrive 一起拽进代理。
+DOMAIN-SUFFIX,teams.microsoft.com
+DOMAIN-SUFFIX,teams.cloud.microsoft
+DOMAIN-SUFFIX,teams.live.com
+DOMAIN-SUFFIX,teams.microsoft.us
+DOMAIN-SUFFIX,teams.cdn.office.net
+DOMAIN-SUFFIX,lync.com
+DOMAIN-SUFFIX,skype.com
+
+# --- Teams 遗留域名（仅旧版 Skype for Business 才需要，不用可整段删）---
+# 说明：mstea.ms / sfbassets.com / skypeassets.com 现已无 A 记录（服务已下线），
+#       写进去匹配不到任何东西，保留只为将来复发。skypeforbusiness.com 仍可解析。
+DOMAIN-SUFFIX,skypeforbusiness.com
+DOMAIN-SUFFIX,mstea.ms
+DOMAIN-SUFFIX,sfbassets.com
+DOMAIN-SUFFIX,skypeassets.com
+
 # --- AI 服务 ---
 DOMAIN-KEYWORD,manus
 DOMAIN-KEYWORD,copilot
